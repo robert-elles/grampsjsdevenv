@@ -20,13 +20,12 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            nodejs
+            # gramps.js uses node version 17 in docker dev file but that version isn't available in nixos packages
+            nodejs_18
             node2nix
+            yarn2nix
             prefetch-npm-deps
           ];
-          # shellHook = ''
-          #   export WAYLAND_PATH="${pkgs.wayland}"
-          # '';
         };
       }
     ));
