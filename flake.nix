@@ -16,6 +16,8 @@
           config.allowBroken = true;
           overlays = [ self.overlay ];
         };
+        python = pkgs.python3;
+        pypkgs = python.pkgs;
       in
       {
         devShells.default = pkgs.mkShell {
@@ -25,6 +27,9 @@
             node2nix
             yarn2nix
             prefetch-npm-deps
+            gtk3
+            gobject-introspection
+            pypkgs.pygobject3
           ];
         };
       }
